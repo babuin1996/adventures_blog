@@ -2,16 +2,14 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
     <div class="carousel">
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=1"></div>
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=2"></div>
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=3"></div>
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=4"></div>
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=5"></div>
-        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=6"></div>
+        <?php foreach ([1,2,3,4,5,6] as $slide) { ?>
+            <div>
+                <img class="slider-image" src="https://picsum.photos/1000/420?random=<?=$slide?>">
+            </div>
+        <?php } ?>
     </div>
 
     <div class="articles">
@@ -42,6 +40,28 @@ $this->title = 'My Yii Application';
     </div>
 </div>
 
+<!--START MODAL-->
+
+<div class="modal fade" id="banner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Добро пожаловать!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Подпишитесь на нашу рассылку, чтобы быть в курсе всех последних путешествий!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--END MODAL-->
+
+
+
 <script>
     $('.carousel').slick({
         slidesToShow: 1,
@@ -50,8 +70,18 @@ $this->title = 'My Yii Application';
         autoplay: true,
         autoplaySpeed: 3000,
     });
+
+    $(function() {
+        setTimeout(function() {
+            $('#banner').modal('show');
+        }, 3000);
+    });
 </script>
 <style>
+    .modal-dialog {
+        height: 100%;
+        margin-top: 20%;
+    }
     .mask {
         background: linear-gradient(#73737300, #0000005e);
         background-color: rgba(0, 0, 0, 0);
