@@ -15,7 +15,7 @@
     <div class="articles">
 
         <div class="row">
-            <?php foreach ([1,2,3,4,5,6] as $article) { ?>
+            <?php foreach ([1,2,3] as $article) { ?>
                 <div class="article col-lg-4">
                 <h2>Heading</h2>
 
@@ -32,35 +32,91 @@
         </div>
     </div>
 
-    <div class="promo">
-        <div style="z-index: 5;">
-            <h2>А угадайте, куда мы поедем в следующий раз?</h2>
+
+
+    <div class="fact">
+        <div class="fact-text">
+            <h2 class="fact-header">Факт недели:</h2>
+            <h3 class="fact-sub-header">Чем серные бани в Тбилиси отличаются от обычных?</h3>
+            <button class="fact-button">Узнать подробнее</button>
         </div>
-        <div class="mask"></div>
+        <div class="fact-mask"></div>
     </div>
-</div>
 
-<!--START MODAL-->
+    <div>
+        <h1 class="before-countries" style="margin-left: 30px;margin-right: 30px;">
+            Выберите страну или регион, в которой вы бы хотели побывать!
+            Вы найдёте много интересного в наших статьях про путешествия!
+        </h1>
+    </div>
 
-<div class="modal fade" id="banner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Добро пожаловать!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Подпишитесь на нашу рассылку, чтобы быть в курсе всех последних путешествий!
-            </div>
+    <table class="countries">
+        <tr>
+            <td class="big-btn-turkey">
+                <div class="countries-mask">
+                    <h3>Турция</h3>
+                </div>
+            </td>
+            <td class="big-btn-iran" rowspan="2">
+                <div class="countries-mask">
+                    <h1>Иран</h1>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="big-btn-egypt">
+                <div class="countries-mask">
+                    <h2>Египет</h2>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="countries">
+        <tr>
+            <td class="big-btn-iran" rowspan="2"
+                style="background-image: url('/img/georgia.jpg');background-position: inherit;">
+                <div class="countries-mask">
+                    <h1>Грузия</h1>
+                </div>
+            </td>
+            <td class="big-btn-turkey" style="background-image: url('/img/erevan.jpeg')">
+                <div class="countries-mask">
+                    <h3>Армения</h3>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="big-btn-egypt"
+                style="background-image: url('/img/osetia.jpg');background-position: inherit;">
+                <div class="countries-mask">
+                    <h2>Кавказ</h2>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="articles">
+
+        <div class="row">
+            <?php foreach ([4,5,6] as $article) { ?>
+                <div class="article col-lg-4">
+                    <h2>Heading</h2>
+
+                    <img class="article-image" src="https://picsum.photos/200/70?random=<?=$article?>">
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur.</p>
+
+                    <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                </div>
+            <?php } ?>
         </div>
     </div>
+
 </div>
-
-<!--END MODAL-->
-
-
 
 <script>
     $('.carousel').slick({
@@ -68,44 +124,6 @@
         dots:true,
         centerMode: true,
         autoplay: true,
-        autoplaySpeed: 3000,
-    });
-
-    $(function() {
-        setTimeout(function() {
-            $('#banner').modal('show');
-        }, 3000);
+        autoplaySpeed: 4000,
     });
 </script>
-<style>
-    .modal-dialog {
-        height: 100%;
-        margin-top: 20%;
-    }
-    .mask {
-        background: linear-gradient(#73737300, #0000005e);
-        background-color: rgba(0, 0, 0, 0);
-        position: absolute;
-        width: 1140px;
-        height: 300px;
-        background-color: #48484833;
-        overflow: hidden;
-        margin: 0 !important;
-    }
-.article {
-    margin-bottom: 40px;
-    padding: 20px;
-}
-
-.article-image {
-    width: 100%;
-    margin-bottom: 25px;
-    margin-top: 30px;
-}
-.carousel {
-    margin-top: 50px;
-}
-.promo > div > h2 {
-    font-weight: bold;
-}
-</style>
