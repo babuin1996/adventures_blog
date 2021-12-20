@@ -4,34 +4,24 @@
 
 $this->title = 'My Yii Application';
 ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<link rel="stylesheet" href="http://kenwheeler.github.io/slick/slick/slick-theme.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <div class="site-index">
-
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
     <div class="carousel">
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=1"></div>
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=2"></div>
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=3"></div>
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=4"></div>
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=5"></div>
-        <div draggable="true"><img class="slider-image" src="https://picsum.photos/1000/420?random=6"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=1"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=2"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=3"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=4"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=5"></div>
+        <div><img class="slider-image" src="https://picsum.photos/1000/420?random=6"></div>
     </div>
 
     <div class="articles">
 
         <div class="row">
-            <div class="col-lg-4">
+            <?php foreach ([1,2,3,4,5,6] as $article) { ?>
+                <div class="article col-lg-4">
                 <h2>Heading</h2>
+
+                    <img class="article-image" src="https://picsum.photos/200/70?random=<?=$article?>">
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -40,33 +30,15 @@ $this->title = 'My Yii Application';
 
                 <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
     <div class="promo">
-        <div>
-            <h2>А угадайте, где мы сейчас! Низачто не поверите...</h2>
+        <div style="z-index: 5;">
+            <h2>А угадайте, куда мы поедем в следующий раз?</h2>
         </div>
+        <div class="mask"></div>
     </div>
 </div>
 
@@ -75,8 +47,35 @@ $this->title = 'My Yii Application';
         slidesToShow: 1,
         dots:true,
         centerMode: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
     });
 </script>
 <style>
+    .mask {
+        background: linear-gradient(#73737300, #0000005e);
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        width: 1140px;
+        height: 300px;
+        background-color: #48484833;
+        overflow: hidden;
+        margin: 0 !important;
+    }
+.article {
+    margin-bottom: 40px;
+    padding: 20px;
+}
 
+.article-image {
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 30px;
+}
+.carousel {
+    margin-top: 50px;
+}
+.promo > div > h2 {
+    font-weight: bold;
+}
 </style>

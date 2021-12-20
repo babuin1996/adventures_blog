@@ -135,9 +135,10 @@ a.desc:after {
 }
 
 .promo {
+    background-position: left;
     display: flex;
     height: 300px;
-    background: linear-gradient(#e66465, #9198e5);
+    background-image: url("/img/bani.jpg");
     margin-top: 30px;
     margin-bottom: 30px;
 }
