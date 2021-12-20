@@ -1,6 +1,9 @@
 <?php
 return [
-    'aliases' => [
+    'id' => 'your-id',
+    'name' => 'Adventures blog',
+    'language' => 'nl',
+        'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
